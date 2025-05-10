@@ -1,0 +1,123 @@
+/* Custom Colors */
+:root {
+    --rm-primary: #2b8a3e;
+    --rm-secondary: #e67700;
+    --rm-accent: #f8f9d7;
+    --rm-muted: #f1f3f5;
+    --rm-border: #dee2e6;
+}
+
+/* Background Colors */
+.bg-light-accent {
+    background-color: var(--rm-accent);
+}
+
+/* Logo Container */
+.logo-container {
+    width: 30px;
+    height: 30px;
+    background-color: var(--rm-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Value Icon Container */
+.value-icon-container {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(43, 138, 62, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* History Icon Container */
+.history-icon-container {
+    width: 150px;
+    height: 150px;
+    background-color: rgba(43, 138, 62, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+.history-icon-container::after {
+    content: '';
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border: 2px dashed var(--rm-primary);
+    border-radius: 50%;
+}
+
+/* Button Overrides */
+.btn-success {
+    background-color: var(--rm-primary);
+    border-color: var(--rm-primary);
+}
+
+.btn-success:hover, .btn-success:focus {
+    background-color: #237032;
+    border-color: #237032;
+}
+
+.btn-outline-success {
+    color: var(--rm-primary);
+    border-color: var(--rm-primary);
+}
+
+.btn-outline-success:hover, .btn-outline-success:focus {
+    background-color: var(--rm-primary);
+    border-color: var(--rm-primary);
+}
+
+/* Text Colors */
+.text-success {
+    color: var(--rm-primary) !important;
+}
+
+/* Card Styles */
+.card {
+    border-color: var(--rm-border);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--rm-border);
+}
+
+/* Table Styles */
+.table {
+    margin-bottom: 0;
+}
+
+/* Nav Tabs */
+.nav-tabs .nav-link.active {
+    color: var(--rm-primary);
+    border-bottom-color: var(--rm-primary);
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link {
+    color: #6c757d;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .history-icon-container {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .history-icon-container::after {
+        width: 120px;
+        height: 120px;
+    }
+}

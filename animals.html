@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Animales - Ranch Master</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top border-bottom">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="logo-container me-2">
+                    <i class="bi bi-truck text-white"></i>
+                </div>
+                <span class="fw-bold text-success">Ranch Master</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold" href="animals.html">Animales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="health.html">Salud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reproduction.html">Reproducción</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="feeding.html">Alimentación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sales.html">Ventas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="locations.html">Ubicaciones</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-4">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="h2 fw-bold">Gestión de Animales</h1>
+                <button class="btn btn-success">
+                    <i class="bi bi-plus-lg me-2"></i>Nuevo Animal
+                </button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="d-flex mb-4">
+                <div class="input-group me-2">
+                    <span class="input-group-text bg-white">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="search" class="form-control" placeholder="Buscar animales...">
+                </div>
+                <button class="btn btn-outline-secondary">Filtros</button>
+            </div>
+
+            <!-- Tabs -->
+            <ul class="nav nav-tabs mb-4" id="animalsTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab">Todos</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="active-tab" data-bs-toggle="tab" data-bs-target="#active" type="button" role="tab">Activos</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="sold-tab" data-bs-toggle="tab" data-bs-target="#sold" type="button" role="tab">Vendidos</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="breeding-tab" data-bs-toggle="tab" data-bs-target="#breeding" type="button" role="tab">En reproducción</button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content" id="animalsTabsContent">
+                <!-- All Animals Tab -->
+                <div class="tab-pane fade show active" id="all" role="tabpanel">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Todos los Animales</h5>
+                            <p class="card-text text-muted small">Lista completa de todos los animales registrados en el sistema.</p>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Raza</th>
+                                            <th>Género</th>
+                                            <th>Edad</th>
+                                            <th>Estado</th>
+                                            <th>Ubicación</th>
+                                            <th class="text-end">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>A001</td>
+                                            <td>Holstein</td>
+                                            <td>Hembra</td>
+                                            <td>3 años</td>
+                                            <td>Activo</td>
+                                            <td>Establo Norte</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-link">Ver</button>
+                                                <button class="btn btn-sm btn-link">Editar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>A002</td>
+                                            <td>Angus</td>
+                                            <td>Macho</td>
+                                            <td>2 años</td>
+                                            <td>Activo</td>
+                                            <td>Establo Sur</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-link">Ver</button>
+                                                <button class="btn btn-sm btn-link">Editar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>A003</td>
+                                            <td>Jersey</td>
+                                            <td>Hembra</td>
+                                            <td>4 años</td>
+                                            <td>En reproducción</td>
+                                            <td>Área de Reproducción</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-link">Ver</button>
+                                                <button class="btn btn-sm btn-link">Editar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>A004</td>
+                                            <td>Hereford</td>
+                                            <td>Macho</td>
+                                            <td>5 años</td>
+                                            <td>Vendido</td>
+                                            <td>-</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-link">Ver</button>
+                                                <button class="btn btn-sm btn-link">Editar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>A005</td>
+                                            <td>Brahman</td>
+                                            <td>Hembra</td>
+                                            <td>2 años</td>
+                                            <td>Activo</td>
+                                            <td>Establo Este</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-link">Ver</button>
+                                                <button class="btn btn-sm btn-link">Editar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <span class="text-muted small">Mostrando 5 de 24 animales</span>
+                            <div>
+                                <button class="btn btn-sm btn-outline-secondary me-2" disabled>Anterior</button>
+                                <button class="btn btn-sm btn-outline-secondary">Siguiente</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other tabs would go here -->
+                <div class="tab-pane fade" id="active" role="tabpanel">
+                    <!-- Active animals content -->
+                </div>
+                <div class="tab-pane fade" id="sold" role="tabpanel">
+                    <!-- Sold animals content -->
+                </div>
+                <div class="tab-pane fade" id="breeding" role="tabpanel">
+                    <!-- Breeding animals content -->
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="row mt-4">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Distribución por Tipo</h5>
+                            <p class="card-text text-muted small">Distribución de animales por categoría</p>
+                        </div>
+                        <div class="card-body">
+                            <div style="height: 300px;">
+                                <canvas id="distributionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Distribución por Edad</h5>
+                            <p class="card-text text-muted small">Cantidad de animales por rango de edad</p>
+                        </div>
+                        <div class="card-body">
+                            <div style="height: 300px;">
+                                <canvas id="ageChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-top py-4">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-muted small mb-md-0">© 2025 Ranch Master. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-muted small me-3 text-decoration-none">Términos</a>
+                    <a href="#" class="text-muted small me-3 text-decoration-none">Privacidad</a>
+                    <a href="#" class="text-muted small text-decoration-none">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Chart Initialization -->
+    <script>
+        // Distribution Chart
+        const distributionCtx = document.getElementById('distributionChart').getContext('2d');
+        const distributionChart = new Chart(distributionCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Vacas', 'Toros', 'Terneros', 'Novillas'],
+                datasets: [{
+                    data: [35, 15, 20, 30],
+                    backgroundColor: [
+                        '#2b8a3e', // Verde oscuro
+                        '#e67700', // Marrón cálido
+                        '#40c057', // Verde medio
+                        '#f59f00'  // Marrón claro
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // Age Chart
+        const ageCtx = document.getElementById('ageChart').getContext('2d');
+        const ageChart = new Chart(ageCtx, {
+            type: 'bar',
+            data: {
+                labels: ['0-1 año', '1-2 años', '2-3 años', '3-4 años', '4-5 años', '5+ años'],
+                datasets: [{
+                    label: 'Cantidad',
+                    data: [15, 22, 18, 25, 12, 8],
+                    backgroundColor: '#2b8a3e',
+                    borderColor: '#2b8a3e',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

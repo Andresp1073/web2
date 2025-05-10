@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Alimentación - Ranch Master</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top border-bottom">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="logo-container me-2">
+                    <i class="bi bi-truck text-white"></i>
+                </div>
+                <span class="fw-bold text-success">Ranch Master</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="animals.html">Animales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="health.html">Salud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reproduction.html">Reproducción</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold" href="feeding.html">Alimentación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sales.html">Ventas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="locations.html">Ubicaciones</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-4">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="h2 fw-bold">Gestión de Alimentación</h1>
+                <button class="btn btn-success">
+                    <i class="bi bi-plus-lg me-2"></i>Nuevo Horario
+                </button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="d-flex mb-4">
+                <div class="input-group me-2">
+                    <span class="input-group-text bg-white">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="search" class="form-control" placeholder="Buscar por tipo de alimento o horario...">
+                </div>
+                <button class="btn btn-outline-secondary">Filtros</button>
+            </div>
+
+            <!-- Feeding Schedules and Details -->
+            <div class="row mb-4">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Horarios de Alimentación</h5>
+                            <p class="card-text text-muted small">Programación de alimentación para los animales.</p>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID Horario</th>
+                                            <th>Hora</th>
+                                            <th>Detalles</th>
+                                            <th class="text-end">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>F001</td>
+                                            <td>06:00</td>
+                                            <td>Alimentación matutina</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-link">Ver</button>
+                                                <button class="btn btn-sm btn-link">Editar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>F002</td>
+                                            <td>12:00</td>
+                                            <td>Alimentación del mediodía</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-link">Ver</button>
+                                                <button class="btn btn-sm btn-link">Editar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>F003</td>
+                                            <td>18:00</td>
+                                            <td>Alimentación vespertina</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-link">Ver</button>
+                                                <button class="btn btn-sm btn-link">Editar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Detalles de Alimentación</h5>
+                            <p class="card-text text-muted small">Tipos y cantidades de alimento.</p>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID Detalle</th>
+                                            <th>Tipo de Alimento</th>
+                                            <th>Cantidad (kg)</th>
+                                            <th class="text-end">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>D001</td>
+                                            <td>Heno</td>
+                                            <td>500</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-link">Ver</button>
+                                                <button class="btn btn-sm btn-link">Editar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>D002</td>
+                                            <td>Concentrado</td>
+                                            <td>250</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-link">Ver</button>
+                                                <button class="btn btn-sm btn-link">Editar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>D003</td>
+                                            <td>Pasto fresco</td>
+                                            <td>800</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-link">Ver</button>
+                                                <button class="btn btn-sm btn-link">Editar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>D004</td>
+                                            <td>Suplementos</td>
+                                            <td>50</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-link">Ver</button>
+                                                <button class="btn btn-sm btn-link">Editar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feeding Assignment Table -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Asignación de Alimentación</h5>
+                    <p class="card-text text-muted small">Relación entre horarios y detalles de alimentación.</p>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>ID Horario</th>
+                                    <th>Hora</th>
+                                    <th>ID Detalle</th>
+                                    <th>Tipo de Alimento</th>
+                                    <th>Cantidad (kg)</th>
+                                    <th class="text-end">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>F001</td>
+                                    <td>06:00</td>
+                                    <td>D001</td>
+                                    <td>Heno</td>
+                                    <td>200</td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-link">Ver</button>
+                                        <button class="btn btn-sm btn-link">Editar</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>F001</td>
+                                    <td>06:00</td>
+                                    <td>D002</td>
+                                    <td>Concentrado</td>
+                                    <td>100</td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-link">Ver</button>
+                                        <button class="btn btn-sm btn-link">Editar</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>F002</td>
+                                    <td>12:00</td>
+                                    <td>D003</td>
+                                    <td>Pasto fresco</td>
+                                    <td>400</td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-link">Ver</button>
+                                        <button class="btn btn-sm btn-link">Editar</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>F003</td>
+                                    <td>18:00</td>
+                                    <td>D001</td>
+                                    <td>Heno</td>
+                                    <td>300</td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-link">Ver</button>
+                                        <button class="btn btn-sm btn-link">Editar</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>F003</td>
+                                    <td>18:00</td>
+                                    <td>D002</td>
+                                    <td>Concentrado</td>
+                                    <td>150</td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-link">Ver</button>
+                                        <button class="btn btn-sm btn-link">Editar</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>F003</td>
+                                    <td>18:00</td>
+                                    <td>D004</td>
+                                    <td>Suplementos</td>
+                                    <td>50</td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-link">Ver</button>
+                                        <button class="btn btn-sm btn-link">Editar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <span class="text-muted small">Mostrando 6 de 15 registros</span>
+                    <div>
+                        <button class="btn btn-sm btn-outline-secondary me-2" disabled>Anterior</button>
+                        <button class="btn btn-sm btn-outline-secondary">Siguiente</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Distribución de Alimentos</h5>
+                            <p class="card-text text-muted small">Distribución por tipo de alimento</p>
+                        </div>
+                        <div class="card-body">
+                            <div style="height: 300px;">
+                                <canvas id="foodDistributionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Consumo Mensual</h5>
+                            <p class="card-text text-muted small">Evolución del consumo de alimento por mes</p>
+                        </div>
+                        <div class="card-body">
+                            <div style="height: 300px;">
+                                <canvas id="monthlyConsumptionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-top py-4">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-muted small mb-md-0">© 2025 Ranch Master. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-muted small me-3 text-decoration-none">Términos</a>
+                    <a href="#" class="text-muted small me-3 text-decoration-none">Privacidad</a>
+                    <a href="#" class="text-muted small text-decoration-none">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Chart Initialization -->
+    <script>
+        // Food Distribution Chart
+        const foodDistributionCtx = document.getElementById('foodDistributionChart').getContext('2d');
+        const foodDistributionChart = new Chart(foodDistributionCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Heno', 'Concentrado', 'Pasto fresco', 'Suplementos'],
+                datasets: [{
+                    data: [500, 250, 800, 50],
+                    backgroundColor: [
+                        '#2b8a3e', // Verde oscuro
+                        '#e67700', // Marrón cálido
+                        '#40c057', // Verde medio
+                        '#1971c2'  // Azul
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // Monthly Consumption Chart
+        const monthlyConsumptionCtx = document.getElementById('monthlyConsumptionChart').getContext('2d');
+        const monthlyConsumptionChart = new Chart(monthlyConsumptionCtx, {
+            type: 'line',
+            data: {
+                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+                datasets: [
+                    {
+                        label: 'Heno',
+                        data: [450, 480, 500, 520, 550, 580],
+                        borderColor: '#2b8a3e',
+                        backgroundColor: 'rgba(43, 138, 62, 0.1)',
+                        tension: 0.1
+                    },
+                    {
+                        label: 'Concentrado',
+                        data: [200, 220, 230, 240, 250, 260],
+                        borderColor: '#e67700',
+                        backgroundColor: 'rgba(230, 119, 0, 0.1)',
+                        tension: 0.1
+                    },
+                    {
+                        label: 'Pasto fresco',
+                        data: [750, 780, 800, 820, 850, 880],
+                        borderColor: '#40c057',
+                        backgroundColor: 'rgba(64, 192, 87, 0.1)',
+                        tension: 0.1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
